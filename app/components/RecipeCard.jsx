@@ -2,10 +2,8 @@ function getRecipeHref(recipe) {
   const id = recipe?.id;
   const slug = recipe?.slug;
 
-  // URL attendue: /recette/1-limonade-de-coco
   if (id != null && slug) return `/recette/${id}-${slug}`;
 
-  // Fallbacks de secours
   if (slug) return `/recette/${slug}`;
   if (id != null) return `/recette/${id}`;
   return "/";

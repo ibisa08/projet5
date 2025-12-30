@@ -122,7 +122,7 @@ a {
 
 .recipe-card__content {
   display: flex;
-  flex-direction: column !important; /* force layout maquette */
+  flex-direction: column !important; 
   gap: 24px;
   flex: 1;
 }
@@ -132,7 +132,6 @@ a {
   min-width: 0;
 }
 
-/* Force align left (évite l’effet “centré”) */
 .recipe-card__body,
 .recipe-card__section-title,
 .recipe-card__description {
@@ -209,14 +208,12 @@ a {
   background-repeat: no-repeat;
   background-color: #000000;
   color: #ffffff;
-  /* Scale with viewport height, but never below mobile target and never above Figma */
   min-height: clamp(520px, 75vh, 960px);
   display: flex;
   position: relative;
   overflow: hidden;
 }
 
-/* Overlay like the Figma header (30% black) */
 .hero::before {
   content: "";
   position: absolute;
@@ -225,7 +222,6 @@ a {
   z-index: 0;
 }
 
-/* Extra darker diagonal area to resemble the Figma mask */
 .hero::after {
   content: "";
   position: absolute;
@@ -252,11 +248,8 @@ a {
   justify-content: flex-start;
 }
 
-
-
 .hero__content {
   max-width: 920px;
-  /* Keep the same look, but adapt when the hero height shrinks */
   margin: clamp(110px, 20vh, 200px) auto 0;
   text-align: center;
 }
@@ -330,9 +323,6 @@ a {
   display: block;
 }
 
-
-
-/* Utility class for screen reader only text */
 .sr-only {
   position: absolute;
   width: 1px;

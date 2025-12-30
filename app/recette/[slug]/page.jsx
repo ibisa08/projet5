@@ -5,7 +5,6 @@ import styles from "./RecipeDetail.module.css";
 
 import recipesData from "../../../recipes.json";
 
-// Selon la config/build, l'import JSON peut être wrap dans `default`
 const RECIPES_SOURCE = recipesData?.default ?? recipesData;
 
 const RECIPES = Array.isArray(RECIPES_SOURCE)
@@ -51,10 +50,8 @@ export default async function RecipeDetailPage({ params }) {
   const slug = resolvedParams?.slug ?? "";
   const slugStr = Array.isArray(slug) ? slug.join("/") : String(slug);
 
-  // 1) Match direct sur le champ `slug`
   let recipe = RECIPES.find((r) => r?.slug === slugStr);
 
-  // 2) Match par id si l'URL commence par un nombre (ex: "2-poisson-cru-a-la-tahitienne")
   if (!recipe) {
     const id = parseInt(slugStr, 10);
     if (!Number.isNaN(id)) {
@@ -62,7 +59,6 @@ export default async function RecipeDetailPage({ params }) {
     }
   }
 
-  // 3) Fallback : slugify(name)
   if (!recipe) {
     const slugNoId = slugStr.replace(/^\d+-/, "");
     recipe = RECIPES.find((r) => {
